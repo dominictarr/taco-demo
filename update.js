@@ -1,4 +1,3 @@
-
 var $ = require('tree-query')
 var fs = require('fs')
 var request = require('request')
@@ -11,7 +10,10 @@ var port = process.argv[2]
 $(static+'**')
 .isFile()
 .paraMap(function (e, cb) {
-  var u = 'http://localhost:'+port+'/http/taco-demo/'+path.relative(static, e)
+  console.log(path.relative(static, e))
+
+  var u = 'http://localhost:'+port+
+  '/http/taco-demo/'+path.relative(static, e)
   fs.createReadStream(e)
     .pipe(request.put(u, function (err, res, body) {
       if(err)

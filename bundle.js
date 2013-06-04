@@ -21,7 +21,6 @@
 })
 ({"/Users/dominictarr/c/taco-demo/index.js":[function(require,module,exports){
 var sublevel   = require('level-sublevel')
-//var Store      = require('level-store')
 var multilevel = require('multilevel')
 var static     = require('level-static')
 var LiveStream = require('level-live-stream')
@@ -33,12 +32,6 @@ module.exports = function (db) {
 
   db.options.valueEncoding = 'json'
   db.options.keyEncoding   = 'utf-8'
-
-//  var store = db.sublevel('store')
-//  var _store = Store(store)
-
-//  store.createFileReadStream = _store.createReadStream.bind(_store)
-//  store.createFileWriteStream = _store.createReadStream.bind(_store)
 
   var files = static(db.sublevel('static'))
 
@@ -192,7 +185,7 @@ module.exports.install = function (db) {
     }
 }
 
-},{"pull-stream-to-stream":"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/index.js","pull-level":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/index.js"}],"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js":[function(require,module,exports){
+},{"pull-stream-to-stream":"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/index.js","pull-level":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/index.js"}],"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js":[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -346,7 +339,7 @@ function duplex (reader, read) {
 }
 
 })(require("__browserify_process"))
-},{"stream":false,"pull-stream":"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/node_modules/pull-stream/index.js","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/node_modules/pull-stream/index.js":[function(require,module,exports){
+},{"stream":false,"pull-stream":"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/node_modules/pull-stream/index.js","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-live-stream/node_modules/pull-stream-to-stream/node_modules/pull-stream/index.js":[function(require,module,exports){
 (function(){
 var sources  = require('./sources')
 var sinks    = require('./sinks')
@@ -845,7 +838,7 @@ function (read, highWaterMark) {
 
 
 })(require("__browserify_process"))
-},{"__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-manifest/index.js":[function(require,module,exports){
+},{"__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-manifest/index.js":[function(require,module,exports){
 
 var deepExtend = require('deep-extend')
 
@@ -1157,7 +1150,7 @@ mime.charsets = {
 module.exports = mime;
 
 })(require("__browserify_process"))
-},{"path":false,"./types.json":"/Users/dominictarr/c/taco-demo/node_modules/level-static/node_modules/mime/types.json","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-static/node_modules/mime/types.json":[function(require,module,exports){
+},{"path":false,"./types.json":"/Users/dominictarr/c/taco-demo/node_modules/level-static/node_modules/mime/types.json","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-static/node_modules/mime/types.json":[function(require,module,exports){
 (function(){module.exports={
   "": [],
   "application/andrew-inset": [
@@ -3803,7 +3796,7 @@ module.exports   = function (db, sep) {
 
 
 })(require("__browserify_process"))
-},{"events":false,"./sub":"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/sub.js","level-hooks":"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js","level-fix-range":"/Users/dominictarr/c/taco-demo/node_modules/level-fix-range/index.js","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js":[function(require,module,exports){
+},{"events":false,"./sub":"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/sub.js","level-hooks":"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js","level-fix-range":"/Users/dominictarr/c/taco-demo/node_modules/level-fix-range/index.js","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js":[function(require,module,exports){
 var ranges = require('string-range')
 var locker = require('lock')
 
@@ -4086,7 +4079,7 @@ module.exports = function () {
 }
 
 })(require("__browserify_process"))
-},{"__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/string-range/index.js":[function(require,module,exports){
+},{"__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/level-sublevel/node_modules/string-range/index.js":[function(require,module,exports){
 
 //force to a valid range
 var range = exports.range = function (obj) {
@@ -4631,7 +4624,7 @@ return function (db, opts) {
 
 }
 
-},{"msgpack-stream":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/index.js","rpc-stream":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/rpc-stream/index.js","stream-combiner":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/stream-combiner/index.js","level-manifest":"/Users/dominictarr/c/taco-demo/node_modules/level-manifest/index.js"}],"/Users/dominictarr/c/securify/node_modules/insert-module-globals/buffer.js":[function(require,module,exports){
+},{"msgpack-stream":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/index.js","rpc-stream":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/rpc-stream/index.js","stream-combiner":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/stream-combiner/index.js","level-manifest":"/Users/dominictarr/c/taco-demo/node_modules/level-manifest/index.js"}],"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/buffer.js":[function(require,module,exports){
 require=(function(e,t,n,r){function i(r){if(!n[r]){if(!t[r]){if(e)return e(r);throw new Error("Cannot find module '"+r+"'")}var s=n[r]={exports:{}};t[r][0](function(e){var n=t[r][1][e];return i(n?n:e)},s,s.exports)}return n[r].exports}for(var s=0;s<r.length;s++)i(r[s]);return i})(typeof require!=="undefined"&&require,{1:[function(require,module,exports){
 exports.readIEEE754 = function(buffer, offset, isBE, mLen, nBytes) {
   var e, m,
@@ -8641,7 +8634,7 @@ function deFramer(onFrame) {
 
 
 })(require("__browserify_buffer").Buffer)
-},{"msgpack-browserify":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/browser.js","through":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/through/index.js","__browserify_buffer":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/buffer.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/browser.js":[function(require,module,exports){
+},{"msgpack-browserify":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/browser.js","through":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/through/index.js","__browserify_buffer":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/buffer.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/browser.js":[function(require,module,exports){
 module.exports = require('msgpack-js-browser');
 
 },{"msgpack-js-browser":"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/node_modules/msgpack-js-browser/msgpack.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/msgpack-stream/node_modules/msgpack-browserify/node_modules/msgpack-js-browser/msgpack.js":[function(require,module,exports){
@@ -9314,7 +9307,7 @@ function through (write, end) {
 
 
 })(require("__browserify_process"))
-},{"stream":false,"__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/mux-demux/inject.js":[function(require,module,exports){
+},{"stream":false,"__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/mux-demux/inject.js":[function(require,module,exports){
 'use strict';
 
 var through = require('through')
@@ -9662,7 +9655,7 @@ module.exports = function (write, end) {
 
 
 })(require("__browserify_process"))
-},{"stream":false,"__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/mux-demux/node_modules/json-buffer/index.js":[function(require,module,exports){
+},{"stream":false,"__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/multilevel/node_modules/mux-demux/node_modules/json-buffer/index.js":[function(require,module,exports){
 (function(){var Buffer = require('buffer').Buffer
 
 //TODO: handle reviver/dehydrate function like normal
@@ -10871,7 +10864,7 @@ function (read, highWaterMark) {
 
 
 })(require("__browserify_process"))
-},{"./util":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/util.js","./sources":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/sources.js","./sinks":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/sinks.js","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/util.js":[function(require,module,exports){
+},{"./util":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/util.js","./sources":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/sources.js","./sinks":"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/sinks.js","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/pull-level/node_modules/pull-stream/util.js":[function(require,module,exports){
 exports.id = 
 function (item) {
   return item
@@ -11223,7 +11216,7 @@ exports.sink = sink
 exports.source = source
 
 })(require("__browserify_process"))
-},{"pull-core":"/Users/dominictarr/c/taco-demo/node_modules/pull-core/index.js","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/through/index.js":[function(require,module,exports){
+},{"pull-core":"/Users/dominictarr/c/taco-demo/node_modules/pull-core/index.js","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/c/taco-demo/node_modules/through/index.js":[function(require,module,exports){
 (function(process){var Stream = require('stream')
 
 // through
@@ -11334,7 +11327,7 @@ function through (write, end, opts) {
 
 
 })(require("__browserify_process"))
-},{"stream":false,"__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/node_modules/pull-stream/index.js":[function(require,module,exports){
+},{"stream":false,"__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/node_modules/pull-stream/index.js":[function(require,module,exports){
 (function(){
 var sources  = require('./sources')
 var sinks    = require('./sinks')
@@ -11945,7 +11938,7 @@ function (read, highWaterMark) {
 
 
 })(require("__browserify_process"))
-},{"./util":"/Users/dominictarr/node_modules/pull-stream/util.js","./sources":"/Users/dominictarr/node_modules/pull-stream/sources.js","__browserify_process":"/Users/dominictarr/c/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/node_modules/pull-stream/util.js":[function(require,module,exports){
+},{"./util":"/Users/dominictarr/node_modules/pull-stream/util.js","./sources":"/Users/dominictarr/node_modules/pull-stream/sources.js","__browserify_process":"/Users/dominictarr/.nave/installed/0.10.5/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/Users/dominictarr/node_modules/pull-stream/util.js":[function(require,module,exports){
 exports.id = 
 function (item) {
   return item

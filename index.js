@@ -1,5 +1,4 @@
 var sublevel   = require('level-sublevel')
-//var Store      = require('level-store')
 var multilevel = require('multilevel')
 var static     = require('level-static')
 var LiveStream = require('level-live-stream')
@@ -11,12 +10,6 @@ module.exports = function (db) {
 
   db.options.valueEncoding = 'json'
   db.options.keyEncoding   = 'utf-8'
-
-//  var store = db.sublevel('store')
-//  var _store = Store(store)
-
-//  store.createFileReadStream = _store.createReadStream.bind(_store)
-//  store.createFileWriteStream = _store.createReadStream.bind(_store)
 
   var files = static(db.sublevel('static'))
 
