@@ -1,0 +1,8 @@
+{
+  "master": "http://localhost:8000",
+  "name": "taco-demo",
+  "on": {
+    "post-update": "node update.js"
+  }
+}
+

@@ -1,0 +1,32 @@
+{
+  "name": "taco-demo",
+  "description": "tacodb-demo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/taco-demo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/taco-demo.git"
+  },
+  "dependencies": {
+    "request": "~2.21.0",
+    "level-sublevel": "~4.6.4",
+    "level-store": "~1.5.2",
+    "multilevel": "~4.0.2",
+    "levelup": "~0.8.0",
+    "level-manifest": "~1.1.1",
+    "level-static": "~1.0.5",
+    "through": "~2.3.4",
+    "hyperscript": "~1.1.1",
+    "reconnect": "~1.2.1",
+    "level-live-stream": "~1.4.1",
+    "tree-query": "0.0.1",
+    "level": "~0.9.0",
+    "bash-vars": "~1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
