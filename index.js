@@ -18,9 +18,6 @@ module.exports = function (db) {
     files(req, res)
   })
 
-  setInterval(function (e) {
-    db.put('h' + Math.random(), new Date())
-  }, 1000)
 
   db.on('connection', function (stream) {
     stream.pipe(multilevel.server(db)).pipe(stream)

@@ -9,8 +9,13 @@ reconnect(function (stream) {
   db = multilevel.client(manifest)
   stream.pipe(db).pipe(stream)
 
-  db.createLiveStream()
+  db.createLiveStream({tail: true})
     .pipe(through(console.log))
+
+    
+  setInterval(function (e) {
+    db.put('h' + Math.random(), new Date())
+  }, 1000)
 
 }).connect('ws://localhost:8000/ws/taco-demo')
 
