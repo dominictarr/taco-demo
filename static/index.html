@@ -176,7 +176,9 @@ function processData(message){
 
 		}	
 		seriesData[seriesNames.indexOf(message.name)].push(message.data)
-		graph.update();
+		if(message.data.x > 30)
+     // annotator.add(seriesData[0][seriesData[0].length-1].x, "Request Count > 30");
+    graph.update();
 	}
 }
 
