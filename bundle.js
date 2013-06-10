@@ -5063,7 +5063,7 @@ module.exports   = function (db, options) {
 
 
 })(require("__browserify_process"))
-},{"events":false,"./sub":"/home/anton/github/taco-demo/node_modules/level-sublevel/sub.js","level-hooks":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js","level-fix-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js","__browserify_process":"/home/anton/github/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js":[function(require,module,exports){
+},{"events":false,"./sub":"/home/anton/github/taco-demo/node_modules/level-sublevel/sub.js","level-fix-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js","level-hooks":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-hooks/index.js","__browserify_process":"/home/anton/github/lib/node_modules/tacodb/node_modules/securify/node_modules/insert-module-globals/node_modules/process/browser.js"}],"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js":[function(require,module,exports){
 
 module.exports = 
 function fixRange(opts) {
@@ -6351,7 +6351,7 @@ SDB.post = function (range, hook) {
 var exports = module.exports = SubDB
 
 
-},{"events":false,"util":false,"string-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/string-range/index.js","xtend":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/xtend/index.js","level-fix-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js"}],"/home/anton/github/taco-demo/node_modules/multilevel/index.js":[function(require,module,exports){
+},{"events":false,"util":false,"string-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/string-range/index.js","level-fix-range":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/level-fix-range/index.js","xtend":"/home/anton/github/taco-demo/node_modules/level-sublevel/node_modules/xtend/index.js"}],"/home/anton/github/taco-demo/node_modules/multilevel/index.js":[function(require,module,exports){
 var MuxDemux = require('mux-demux/jsonb')
 module.exports = {
   client : require('./lib/client')(MuxDemux),

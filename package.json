@@ -22,7 +22,8 @@
     "tree-query": "0.0.1",
     "level": "~0.9.0",
     "bash-vars": "~1.0.0",
-    "pull-stream" : "~2.18.3"
+    "pull-stream" : "~2.18.3",
+    "monotonic-timestamp" : "~0.0.8"
   },
   "devDependencies": {},
   "scripts": {

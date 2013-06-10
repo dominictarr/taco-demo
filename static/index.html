@@ -48,7 +48,7 @@
 <div id="content">
 
 	<form id="side_panel">
-		<h1>Random Data in the Future</h1>
+		<h1>D-Trace Viewer</h1>
 		<section><div id="legend"></div></section>
 		<section>
 			<div id="renderer_form" class="toggler">
@@ -113,20 +113,92 @@
 
 <script>
 
-// set up our data series with 150 random data points
+var graph;
 
-var seriesData = [ [], [], [], [], [], [], [], [], [] ];
-var random = new Rickshaw.Fixtures.RandomData(150);
+function processData(message){
+	/*  formatDate = d3.time.format.iso;
+		a = formatDate.parse('2012-02-01T20:00:00').getTime();
+	*/
+/*
+	console.log(message.value)
+	var formatDate = d3.time.format.iso;
+    var d3Date = formatDate.parse(new Date(message.data.x)).getTime();
+    message.data.x = d3Date;*/
+	var d3Date = Math.round(new Date(message.data.x).getTime() / 1000)	 
+	message.data.x = d3Date;
+	if(graph === undefined){
+		createGraph(message)
+		seriesNames.push(message.name);
+	}else{
 
-for (var i = 0; i < 150; i++) {
-	random.addData(seriesData);
+		if(seriesNames.indexOf(message.name) == -1){
+		   
+		   // Create an array of equal Time values but set to 0;
+		   var tmpArr = [];
+		   for(var i = 0; i < seriesData[0].length; i++){
+		   		var tmpObj = {}; 
+		   		tmpObj.x = seriesData[0][i].x;
+		   		tmpObj.y = 0;
+		   		tmpArr.push(tmpObj); 
+		   }
+		   //Add the values to the holding array store
+		   seriesData.push(tmpArr);
+
+		   //console.log(seriesData)
+		   //Create a new series
+		   graph.series.push({
+					color: palette.color(),
+					data: seriesData[seriesData.length - 1],
+					name: message.name
+			})
+		    //Store the series name for using to detect new messages later
+		  	seriesNames.push(message.name);
+		  	document.getElementById('legend').innerHTML = "";
+		  	legend = new Rickshaw.Graph.Legend( {
+				graph: graph,
+				element: document.getElementById('legend')
+			} );
+
+			shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
+				graph: graph,
+				legend: legend
+			} );
+
+			order = new Rickshaw.Graph.Behavior.Series.Order( {
+				graph: graph,
+				legend: legend
+			} );
+
+			highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
+				graph: graph,
+				legend: legend
+			} );
+
+		}	
+		seriesData[seriesNames.indexOf(message.name)].push(message.data)
+		graph.update();
+	}
 }
 
-var palette = new Rickshaw.Color.Palette( { scheme: 'classic9' } );
 
+// set up our data series with 150 random data points
+var msgCount = 0;
+var seriesData = [ [] ];
+var seriesNames = [];
+var palette = new Rickshaw.Color.Palette( { scheme: 'classic9' } );
+var legend;
+var highlighter;
+var shelving;
+var order;
+
+function createGraph(seriesToAdd){
+
+	seriesData[0] = [seriesToAdd.data]	
+	seriesToAdd.color = palette.color();
 // instantiate our graph!
 
-var graph = new Rickshaw.Graph( {
+
+graph = new Rickshaw.Graph( {
 	element: document.getElementById("chart"),
 	width: 900,
 	height: 500,
@@ -134,36 +206,11 @@ var graph = new Rickshaw.Graph( {
 	stroke: true,
 	preserve: true,
 	series: [
-		{
-			color: palette.color(),
-			data: seriesData[0],
-			name: 'Moscow'
-		}, {
-			color: palette.color(),
-			data: seriesData[1],
-			name: 'Shanghai'
-		}, {
-			color: palette.color(),
-			data: seriesData[2],
-			name: 'Amsterdam'
-		}, {
-			color: palette.color(),
-			data: seriesData[3],
-			name: 'Paris'
-		}, {
-			color: palette.color(),
-			data: seriesData[4],
-			name: 'Tokyo'
-		}, {
-			color: palette.color(),
-			data: seriesData[5],
-			name: 'London'
-		}, {
-			color: palette.color(),
-			data: seriesData[6],
-			name: 'New York'
-		}
-	]
+				{
+					color: palette.color(),
+					data: seriesData[0],
+					name: seriesToAdd.name
+				}]
 } );
 
 graph.render();
@@ -182,23 +229,23 @@ var annotator = new Rickshaw.Graph.Annotate( {
 	element: document.getElementById('timeline')
 } );
 
-var legend = new Rickshaw.Graph.Legend( {
+legend = new Rickshaw.Graph.Legend( {
 	graph: graph,
 	element: document.getElementById('legend')
 
 } );
 
-var shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
+shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
 	graph: graph,
 	legend: legend
 } );
 
-var order = new Rickshaw.Graph.Behavior.Series.Order( {
+order = new Rickshaw.Graph.Behavior.Series.Order( {
 	graph: graph,
 	legend: legend
 } );
 
-var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
+highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
 	graph: graph,
 	legend: legend
 } );
@@ -230,7 +277,7 @@ var controls = new RenderControls( {
 	element: document.querySelector('form'),
 	graph: graph
 } );
-
+}
 // add some data every so often
 
 var messages = [
@@ -244,11 +291,11 @@ var messages = [
 	"Added documentation for new methods"
 ];
 
-setInterval( function() {
+/*setInterval( function() {
 	random.addData(seriesData);
 	graph.update();
 
-}, 3000 );
+}, 3000 );*/
 
 function addAnnotation(force) {
 	if (messages.length > 0 && (force || Math.random() >= 0.95)) {
@@ -256,11 +303,11 @@ function addAnnotation(force) {
 	}
 }
 
-addAnnotation(true);
+/*addAnnotation(true);
 setTimeout( function() { setInterval( addAnnotation, 6000 ) }, 6000 );
-
+*/
 </script>
-
+<h6>Connection Status</h6>
 </body>
 
 <script src=./bundle.js></script>
