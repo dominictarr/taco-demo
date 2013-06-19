@@ -8,10 +8,10 @@ module.exports = function (db) {
   sublevel(db)
   LiveStream.install(db)
 
-  db.options.valueEncoding = 'binary'
+  db.options.valueEncoding = 'json'
   db.options.keyEncoding   = 'utf-8'
 
-  var files = static(db.sublevel('static'))
+  var files = static(db.sublevel('static', {valueEncoding: 'binary'}))
 
   db.on('http_connection', function (req, res) {
     console.error('HTTP', req.method, req.url)
@@ -20,7 +20,9 @@ module.exports = function (db) {
 
 
   db.on('connection', function (stream) {
-    stream.pipe(multilevel.server(db)).pipe(stream)
+    stream.pipe(multilevel.server(db).on('data', function (data) {
+      console.log('data', data)
+    })).pipe(stream)
   })
 
 //  store.methods.createFileReadStream = {type: 'readable'}
