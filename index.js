@@ -8,7 +8,7 @@ module.exports = function (db) {
   sublevel(db)
   LiveStream.install(db)
 
-  db.options.valueEncoding = 'json'
+  db.options.valueEncoding = 'binary'
   db.options.keyEncoding   = 'utf-8'
 
   var files = static(db.sublevel('static'))
