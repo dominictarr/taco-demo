@@ -7,9 +7,11 @@
       "type": "readable"
     }
   },
+  "_sep": "ÿ",
   "sublevels": {
     "static": {
       "methods": {},
+      "_sep": "ÿ",
       "_prefix": "static",
       "sublevels": {}
     }

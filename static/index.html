@@ -1,113 +1,113 @@
 <!doctype>
 <head>
-	<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css">
-	<link type="text/css" rel="stylesheet" href="css/graph.css">
-	<link type="text/css" rel="stylesheet" href="css/detail.css">
-	<link type="text/css" rel="stylesheet" href="css/legend.css">
-	<link type="text/css" rel="stylesheet" href="css/extensions.css">
+  <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css">
+  <link type="text/css" rel="stylesheet" href="css/graph.css">
+  <link type="text/css" rel="stylesheet" href="css/detail.css">
+  <link type="text/css" rel="stylesheet" href="css/legend.css">
+  <link type="text/css" rel="stylesheet" href="css/extensions.css">
 
-	<script src="http://code.shutterstock.com/rickshaw/vendor/d3.v2.js"></script>
-<!--
-	Removed due to tacodb encoding issue. 
-	To reproduce Issue 1 on tacodb replace the line above with :   
-	<script src="vendor/d3.v2.js"></script>
--->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+  <script src="http://code.shutterstock.com/rickshaw/vendor/d3.v2.js"></script>
+<!-- -->
+  Removed due to tacodb encoding issue. 
+  To reproduce Issue 1 on tacodb replace the line above with :   
+  <script src="vendor/d3.v2.js"></script>
+<!-- -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 
-	<script src="js/Rickshaw.js"></script>
-	<script src="js/Rickshaw.Class.js"></script>
-	<script src="js/Rickshaw.Compat.ClassList.js"></script>
-	<script src="js/Rickshaw.Graph.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Area.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Line.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.Bar.js"></script>
-	<script src="js/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
-	<script src="js/Rickshaw.Graph.RangeSlider.js"></script>
-	<script src="js/Rickshaw.Graph.HoverDetail.js"></script>
-	<script src="js/Rickshaw.Graph.Annotate.js"></script>
-	<script src="js/Rickshaw.Graph.Legend.js"></script>
-	<script src="js/Rickshaw.Graph.Axis.Time.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Order.js"></script>
-	<script src="js/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
-	<script src="js/Rickshaw.Graph.Smoother.js"></script>
-	<script src="js/Rickshaw.Graph.Unstacker.js"></script>
-	<script src="js/Rickshaw.Fixtures.Time.js"></script>
-	<script src="js/Rickshaw.Fixtures.Number.js"></script>
-	<script src="js/Rickshaw.Fixtures.RandomData.js"></script>
-	<script src="js/Rickshaw.Fixtures.Color.js"></script>
-	<script src="js/Rickshaw.Color.Palette.js"></script>
-	<script src="js/Rickshaw.Graph.Axis.Y.js"></script>
+  <script src="js/Rickshaw.js"></script>
+  <script src="js/Rickshaw.Class.js"></script>
+  <script src="js/Rickshaw.Compat.ClassList.js"></script>
+  <script src="js/Rickshaw.Graph.js"></script>
+  <script src="js/Rickshaw.Graph.Renderer.js"></script>
+  <script src="js/Rickshaw.Graph.Renderer.Area.js"></script>
+  <script src="js/Rickshaw.Graph.Renderer.Line.js"></script>
+  <script src="js/Rickshaw.Graph.Renderer.Bar.js"></script>
+  <script src="js/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
+  <script src="js/Rickshaw.Graph.RangeSlider.js"></script>
+  <script src="js/Rickshaw.Graph.HoverDetail.js"></script>
+  <script src="js/Rickshaw.Graph.Annotate.js"></script>
+  <script src="js/Rickshaw.Graph.Legend.js"></script>
+  <script src="js/Rickshaw.Graph.Axis.Time.js"></script>
+  <script src="js/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
+  <script src="js/Rickshaw.Graph.Behavior.Series.Order.js"></script>
+  <script src="js/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
+  <script src="js/Rickshaw.Graph.Smoother.js"></script>
+  <script src="js/Rickshaw.Graph.Unstacker.js"></script>
+  <script src="js/Rickshaw.Fixtures.Time.js"></script>
+  <script src="js/Rickshaw.Fixtures.Number.js"></script>
+  <script src="js/Rickshaw.Fixtures.RandomData.js"></script>
+  <script src="js/Rickshaw.Fixtures.Color.js"></script>
+  <script src="js/Rickshaw.Color.Palette.js"></script>
+  <script src="js/Rickshaw.Graph.Axis.Y.js"></script>
 
-	<script src="js/extensions.js"></script>
+  <script src="js/extensions.js"></script>
 </head>
 <body>
 
 <div id="content">
 
-	<form id="side_panel">
-		<h1>D-Trace Viewer</h1>
-		<section><div id="legend"></div></section>
-		<section>
-			<div id="renderer_form" class="toggler">
-				<input type="radio" name="renderer" id="area" value="area" checked>
-				<label for="area">area</label>
-				<input type="radio" name="renderer" id="bar" value="bar">
-				<label for="bar">bar</label>
-				<input type="radio" name="renderer" id="line" value="line">
-				<label for="line">line</label>
-				<input type="radio" name="renderer" id="scatter" value="scatterplot">
-				<label for="scatter">scatter</label>
-			</div>
-		</section>
-		<section>
-			<div id="offset_form">
-				<label for="stack">
-					<input type="radio" name="offset" id="stack" value="zero" checked>
-					<span>stack</span>
-				</label>
-				<label for="stream">
-					<input type="radio" name="offset" id="stream" value="wiggle">
-					<span>stream</span>
-				</label>
-				<label for="pct">
-					<input type="radio" name="offset" id="pct" value="expand">
-					<span>pct</span>
-				</label>
-				<label for="value">
-					<input type="radio" name="offset" id="value" value="value">
-					<span>value</span>
-				</label>
-			</div>
-			<div id="interpolation_form">
-				<label for="cardinal">
-					<input type="radio" name="interpolation" id="cardinal" value="cardinal" checked>
-					<span>cardinal</span>
-				</label>
-				<label for="linear">
-					<input type="radio" name="interpolation" id="linear" value="linear">
-					<span>linear</span>
-				</label>
-				<label for="step">
-					<input type="radio" name="interpolation" id="step" value="step-after">
-					<span>step</span>
-				</label>
-			</div>
-		</section>
-		<section>
-			<h6>Smoothing</h6>
-			<div id="smoother"></div>
-		</section>
-		<section></section>
-	</form>
+  <form id="side_panel">
+    <h1>D-Trace Viewer</h1>
+    <section><div id="legend"></div></section>
+    <section>
+      <div id="renderer_form" class="toggler">
+        <input type="radio" name="renderer" id="area" value="area" checked>
+        <label for="area">area</label>
+        <input type="radio" name="renderer" id="bar" value="bar">
+        <label for="bar">bar</label>
+        <input type="radio" name="renderer" id="line" value="line">
+        <label for="line">line</label>
+        <input type="radio" name="renderer" id="scatter" value="scatterplot">
+        <label for="scatter">scatter</label>
+      </div>
+    </section>
+    <section>
+      <div id="offset_form">
+        <label for="stack">
+          <input type="radio" name="offset" id="stack" value="zero" checked>
+          <span>stack</span>
+        </label>
+        <label for="stream">
+          <input type="radio" name="offset" id="stream" value="wiggle">
+          <span>stream</span>
+        </label>
+        <label for="pct">
+          <input type="radio" name="offset" id="pct" value="expand">
+          <span>pct</span>
+        </label>
+        <label for="value">
+          <input type="radio" name="offset" id="value" value="value">
+          <span>value</span>
+        </label>
+      </div>
+      <div id="interpolation_form">
+        <label for="cardinal">
+          <input type="radio" name="interpolation" id="cardinal" value="cardinal" checked>
+          <span>cardinal</span>
+        </label>
+        <label for="linear">
+          <input type="radio" name="interpolation" id="linear" value="linear">
+          <span>linear</span>
+        </label>
+        <label for="step">
+          <input type="radio" name="interpolation" id="step" value="step-after">
+          <span>step</span>
+        </label>
+      </div>
+    </section>
+    <section>
+      <h6>Smoothing</h6>
+      <div id="smoother"></div>
+    </section>
+    <section></section>
+  </form>
 
-	<div id="chart_container">
-		<div id="chart"></div>
-		<div id="timeline"></div>
-		<div id="slider"></div>
-	</div>
+  <div id="chart_container">
+    <div id="chart"></div>
+    <div id="timeline"></div>
+    <div id="slider"></div>
+  </div>
 
 </div>
 
@@ -116,70 +116,70 @@
 var graph;
 
 function processData(message){
-	/*  formatDate = d3.time.format.iso;
-		a = formatDate.parse('2012-02-01T20:00:00').getTime();
-	*/
+  /*  formatDate = d3.time.format.iso;
+    a = formatDate.parse('2012-02-01T20:00:00').getTime();
+  */
 /*
-	console.log(message.value)
-	var formatDate = d3.time.format.iso;
+  console.log(message.value)
+  var formatDate = d3.time.format.iso;
     var d3Date = formatDate.parse(new Date(message.data.x)).getTime();
     message.data.x = d3Date;*/
-	var d3Date = Math.round(new Date(message.data.x).getTime() / 1000)	 
-	message.data.x = d3Date;
-	if(graph === undefined){
-		createGraph(message)
-		seriesNames.push(message.name);
-	}else{
+  var d3Date = Math.round(new Date(message.data.x).getTime() / 1000)   
+  message.data.x = d3Date;
+  if(graph === undefined){
+    createGraph(message)
+    seriesNames.push(message.name);
+  }else{
 
-		if(seriesNames.indexOf(message.name) == -1){
-		   
-		   // Create an array of equal Time values but set to 0;
-		   var tmpArr = [];
-		   for(var i = 0; i < seriesData[0].length; i++){
-		   		var tmpObj = {}; 
-		   		tmpObj.x = seriesData[0][i].x;
-		   		tmpObj.y = 0;
-		   		tmpArr.push(tmpObj); 
-		   }
-		   //Add the values to the holding array store
-		   seriesData.push(tmpArr);
+    if(seriesNames.indexOf(message.name) == -1){
+       
+       // Create an array of equal Time values but set to 0;
+       var tmpArr = [];
+       for(var i = 0; i < seriesData[0].length; i++){
+           var tmpObj = {}; 
+           tmpObj.x = seriesData[0][i].x;
+           tmpObj.y = 0;
+           tmpArr.push(tmpObj); 
+       }
+       //Add the values to the holding array store
+       seriesData.push(tmpArr);
 
-		   //console.log(seriesData)
-		   //Create a new series
-		   graph.series.push({
-					color: palette.color(),
-					data: seriesData[seriesData.length - 1],
-					name: message.name
-			})
-		    //Store the series name for using to detect new messages later
-		  	seriesNames.push(message.name);
-		  	document.getElementById('legend').innerHTML = "";
-		  	legend = new Rickshaw.Graph.Legend( {
-				graph: graph,
-				element: document.getElementById('legend')
-			} );
+       //console.log(seriesData)
+       //Create a new series
+       graph.series.push({
+          color: palette.color(),
+          data: seriesData[seriesData.length - 1],
+          name: message.name
+      })
+        //Store the series name for using to detect new messages later
+        seriesNames.push(message.name);
+        document.getElementById('legend').innerHTML = "";
+        legend = new Rickshaw.Graph.Legend( {
+        graph: graph,
+        element: document.getElementById('legend')
+      } );
 
-			shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
-				graph: graph,
-				legend: legend
-			} );
+      shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
+        graph: graph,
+        legend: legend
+      } );
 
-			order = new Rickshaw.Graph.Behavior.Series.Order( {
-				graph: graph,
-				legend: legend
-			} );
+      order = new Rickshaw.Graph.Behavior.Series.Order( {
+        graph: graph,
+        legend: legend
+      } );
 
-			highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
-				graph: graph,
-				legend: legend
-			} );
+      highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
+        graph: graph,
+        legend: legend
+      } );
 
-		}	
-		seriesData[seriesNames.indexOf(message.name)].push(message.data)
-		if(message.data.x > 30)
+    }  
+    seriesData[seriesNames.indexOf(message.name)].push(message.data)
+    if(message.data.x > 30)
      // annotator.add(seriesData[0][seriesData[0].length-1].x, "Request Count > 30");
     graph.update();
-	}
+  }
 }
 
 
@@ -195,114 +195,114 @@ var order;
 
 function createGraph(seriesToAdd){
 
-	seriesData[0] = [seriesToAdd.data]	
-	seriesToAdd.color = palette.color();
+  seriesData[0] = [seriesToAdd.data]  
+  seriesToAdd.color = palette.color();
 // instantiate our graph!
 
 
 graph = new Rickshaw.Graph( {
-	element: document.getElementById("chart"),
-	width: 900,
-	height: 500,
-	renderer: 'area',
-	stroke: true,
-	preserve: true,
-	series: [
-				{
-					color: palette.color(),
-					data: seriesData[0],
-					name: seriesToAdd.name
-				}]
+  element: document.getElementById("chart"),
+  width: 900,
+  height: 500,
+  renderer: 'area',
+  stroke: true,
+  preserve: true,
+  series: [
+        {
+          color: palette.color(),
+          data: seriesData[0],
+          name: seriesToAdd.name
+        }]
 } );
 
 graph.render();
 
 var slider = new Rickshaw.Graph.RangeSlider( {
-	graph: graph,
-	element: $('#slider')
+  graph: graph,
+  element: $('#slider')
 } );
 
 var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-	graph: graph
+  graph: graph
 } );
 
 var annotator = new Rickshaw.Graph.Annotate( {
-	graph: graph,
-	element: document.getElementById('timeline')
+  graph: graph,
+  element: document.getElementById('timeline')
 } );
 
 legend = new Rickshaw.Graph.Legend( {
-	graph: graph,
-	element: document.getElementById('legend')
+  graph: graph,
+  element: document.getElementById('legend')
 
 } );
 
 shelving = new Rickshaw.Graph.Behavior.Series.Toggle( {
-	graph: graph,
-	legend: legend
+  graph: graph,
+  legend: legend
 } );
 
 order = new Rickshaw.Graph.Behavior.Series.Order( {
-	graph: graph,
-	legend: legend
+  graph: graph,
+  legend: legend
 } );
 
 highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
-	graph: graph,
-	legend: legend
+  graph: graph,
+  legend: legend
 } );
 
 var smoother = new Rickshaw.Graph.Smoother( {
-	graph: graph,
-	element: $('#smoother')
+  graph: graph,
+  element: $('#smoother')
 } );
 
 var ticksTreatment = 'glow';
 
 var xAxis = new Rickshaw.Graph.Axis.Time( {
-	graph: graph,
-	ticksTreatment: ticksTreatment
+  graph: graph,
+  ticksTreatment: ticksTreatment
 } );
 
 xAxis.render();
 
 var yAxis = new Rickshaw.Graph.Axis.Y( {
-	graph: graph,
-	tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-	ticksTreatment: ticksTreatment
+  graph: graph,
+  tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+  ticksTreatment: ticksTreatment
 } );
 
 yAxis.render();
 
 
 var controls = new RenderControls( {
-	element: document.querySelector('form'),
-	graph: graph
+  element: document.querySelector('form'),
+  graph: graph
 } );
 }
 // add some data every so often
 
 var messages = [
-	"Changed home page welcome message",
-	"Minified JS and CSS",
-	"Changed button color from blue to green",
-	"Refactored SQL query to use indexed columns",
-	"Added additional logging for debugging",
-	"Fixed typo",
-	"Rewrite conditional logic for clarity",
-	"Added documentation for new methods"
+  "Changed home page welcome message",
+  "Minified JS and CSS",
+  "Changed button color from blue to green",
+  "Refactored SQL query to use indexed columns",
+  "Added additional logging for debugging",
+  "Fixed typo",
+  "Rewrite conditional logic for clarity",
+  "Added documentation for new methods"
 ];
 
 /*setInterval( function() {
-	random.addData(seriesData);
-	graph.update();
+  random.addData(seriesData);
+  graph.update();
 
 }, 3000 );*/
 
 function addAnnotation(force) {
-	if (messages.length > 0 && (force || Math.random() >= 0.95)) {
-		annotator.add(seriesData[2][seriesData[2].length-1].x, messages.shift());
-	}
+  if (messages.length > 0 && (force || Math.random() >= 0.95)) {
+    annotator.add(seriesData[2][seriesData[2].length-1].x, messages.shift());
+  }
 }
 
 /*addAnnotation(true);
